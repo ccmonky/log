@@ -8,7 +8,7 @@ import (
 )
 
 func TestPrintln(t *testing.T) {
-	log.Println(1, 3, 4)
-	log.Println = stdlog.Println
+	stdlog.Println(log.ErrorLevel, 1, 3, 4)
+	log.Println(log.ErrorLevel, 1, 3, 4)
 	t.Fatal(1)
 }

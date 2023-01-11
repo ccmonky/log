@@ -93,6 +93,22 @@ func (logger *StdLogger) Log(level Level, msg string, keysAndValues ...interface
 	}
 }
 
+func Debug(msg string, keysAndValues ...interface{}) {
+	defaultLogger.Debug(msg, keysAndValues...)
+}
+
+func Info(msg string, keysAndValues ...interface{}) {
+	defaultLogger.Info(msg, keysAndValues...)
+}
+
+func Error(msg string, keysAndValues ...interface{}) {
+	defaultLogger.Error(msg, keysAndValues...)
+}
+
+func Log(level Level, msg string, keysAndValues ...interface{}) {
+	defaultLogger.Log(level, msg, keysAndValues...)
+}
+
 type Level int8
 
 const (
@@ -129,7 +145,11 @@ func RegisterLevelName(level Level, name string) {
 }
 
 var (
-	levelNames     = map[Level]string{}
+	levelNames = map[Level]string{
+		DebugLevel: "debug",
+		InfoLevel:  "info",
+		ErrorLevel: "error",
+	}
 	levelNamesLock sync.RWMutex
 	defaultLogger  = NewStdLogger()
 )

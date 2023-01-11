@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ccmonky/pkg/log"
+	"github.com/ccmonky/log"
 )
 
 func TestStdLogger(t *testing.T) {
