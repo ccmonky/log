@@ -109,7 +109,7 @@ func convert(isPanic, isFatal bool) func(v ...any) {
 		}
 		Log(logger, logger.Level, "", v...)
 		if isPanic {
-			panic(fmt.Sprint(v...))
+			panic(fmt.Sprintln(v...))
 		}
 		if isFatal {
 			os.Exit(1)
@@ -132,7 +132,7 @@ func convertf(isPanic, isFatal bool) func(format string, v ...any) {
 		}
 		Log(logger, logger.Level, fmt.Sprintf(format, v...))
 		if isPanic {
-			panic(fmt.Sprint(v...))
+			panic(fmt.Sprintln(v...))
 		}
 		if isFatal {
 			os.Exit(1)
