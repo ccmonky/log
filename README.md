@@ -48,7 +48,7 @@ log.SetLogger("", appLogger)
 then all your logs of libs will be recorded by appLogger, but note that, all the logs can only be recorded by
 appLogger in info level.
 
-If you are develop new libs, you can also support logger and levels like this:
+- second, if you are develop new libs, you can also support logger and levels like this:
 
 ```go
 log.Println(log.Ctx("xxx", log.E), ...)
