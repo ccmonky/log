@@ -104,10 +104,11 @@ func convert(isPanic, isFatal bool) func(v ...any) {
 				v = v[1:]
 			}
 		}
+		level := logger.Level()
 		if isPanic || isFatal {
-			logger.Level = ErrorLevel
+			level = ErrorLevel
 		}
-		Log(logger, logger.Level, "", v...)
+		Log(logger, level, "", v...)
 		if isPanic {
 			panic(fmt.Sprintln(v...))
 		}
@@ -127,10 +128,11 @@ func convertf(isPanic, isFatal bool) func(format string, v ...any) {
 				logger = ctx
 			}
 		}
+		level := logger.Level()
 		if isPanic || isFatal {
-			logger.Level = ErrorLevel
+			level = ErrorLevel
 		}
-		Log(logger, logger.Level, fmt.Sprintf(format, v...))
+		Log(logger, level, fmt.Sprintf(format, v...))
 		if isPanic {
 			panic(fmt.Sprintln(v...))
 		}
