@@ -174,19 +174,31 @@ func NewLevelLogger(opts ...LevelLoggerOption) LoggerInterface {
 
 func (logger *LevelLogger) Debug(msg string, keysAndValues ...interface{}) {
 	if logger.level <= DebugLevel {
-		logger.Print(fmt.Sprintf("level: debug, msg: %s, ", msg), fmt.Sprintln(keysAndValues...))
+		var msgPart string
+		if msg != "" {
+			msgPart = fmt.Sprintf("msg: %s, ", msg)
+		}
+		logger.Print("level: debug, "+msgPart, fmt.Sprintln(keysAndValues...))
 	}
 }
 
 func (logger *LevelLogger) Info(msg string, keysAndValues ...interface{}) {
 	if logger.level <= InfoLevel {
-		logger.Print(fmt.Sprintf("level: info, msg: %s, ", msg), fmt.Sprintln(keysAndValues...))
+		var msgPart string
+		if msg != "" {
+			msgPart = fmt.Sprintf("msg: %s, ", msg)
+		}
+		logger.Print("level: info, "+msgPart, fmt.Sprintln(keysAndValues...))
 	}
 }
 
 func (logger *LevelLogger) Error(msg string, keysAndValues ...interface{}) {
 	if logger.level <= ErrorLevel {
-		logger.Print(fmt.Sprintf("level: error, msg: %s, ", msg), fmt.Sprintln(keysAndValues...))
+		var msgPart string
+		if msg != "" {
+			msgPart = fmt.Sprintf("msg: %s, ", msg)
+		}
+		logger.Print("level: error, "+msgPart, fmt.Sprintln(keysAndValues...))
 	}
 }
 

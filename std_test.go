@@ -70,7 +70,7 @@ func TestStd(t *testing.T) {
 	}{
 		{
 			[]any{1, 2, 3},
-			"level: info, msg: , 1 2 3\n",
+			"level: info, 1 2 3\n",
 		},
 		{
 			[]any{log.Ctx("nop"), 1, 2, 3},
@@ -78,7 +78,7 @@ func TestStd(t *testing.T) {
 		},
 		{
 			[]any{log.Ctx("", log.E), 1, 2, 3},
-			"level: error, msg: , 1 2 3\n",
+			"level: error, 1 2 3\n",
 		},
 		{
 			[]any{log.Ctx(log.D), 1, 2, 3},
@@ -86,7 +86,7 @@ func TestStd(t *testing.T) {
 		},
 		{
 			[]any{log.Ctx("debug", log.D), 1, 2, 3},
-			"level: debug, msg: , 1 2 3\n",
+			"level: debug, 1 2 3\n",
 		},
 	}
 	for i, tc := range cases {
