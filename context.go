@@ -48,7 +48,7 @@ func Ctx(ps ...any) ContextLogger {
 // contextLoggerOption specify context logger option
 type contextLoggerOption func(*contextLogger)
 
-// WithcontextLoggerName specify logger name
+// WithContextLoggerName specify logger name
 func WithContextLoggerName(name string) contextLoggerOption {
 	return func(ctx *contextLogger) {
 		ctx.LoggerName = LoggerName(name)
@@ -62,7 +62,7 @@ func WithContextLevel(level int8) contextLoggerOption {
 	}
 }
 
-// WithContextLevel specify logger level
+// WithContextArgs specify logger level
 func WithContextArgs(args []interface{}) contextLoggerOption {
 	return func(ctx *contextLogger) {
 		ctx.args = args
